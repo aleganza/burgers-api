@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css"/>
-    <title>Burgers</title>
-</head>
-<body>
-    <h1>Burgers</h1>
-    <button onclick="fetchAPI()">Press Me</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script src="https://kit.fontawesome.com/223615c47d.js" crossorigin="anonymous"></script>
+        <title>Burgers</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="main-header">
+                <h1>Burgers</h1>
+            </div>
+            <div class="inner-container">
+                <div class="page">
+                    <div class="search-bar">
+                        <button onclick="fetchAPI()" id="search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                        <input id="search-input" type="text" placeholder="Filter" autocomplete="on">
+                    </div>
+                    <div class="items-container" id="items">
 
-    <div class="container">
-        <div class="inner-container">
-            <div class="search-bar">
-                
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
-<script src="script.js"></script>
+    </body>
+    <script src="script.js"></script>
 </html>
