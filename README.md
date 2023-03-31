@@ -1,3 +1,5 @@
-# burgers-js
+# 🍔 burgers-js
 
-jquery
+🔗 [API url](https://my-burger-api.herokuapp.com/burgers)
+
+An API for burgers
