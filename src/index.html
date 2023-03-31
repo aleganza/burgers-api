@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="icon" type="image/x-icon" href="../public/favicon.ico"/>
         <script src="https://kit.fontawesome.com/223615c47d.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
         <title>Burgers API</title>
@@ -18,35 +19,49 @@
                 <i class="fa-solid fa-burger"></i>
             </a>
         </div>
-        <div class="container">
-            <div class="main-header">
-                <h1>Burgers API</h1>
-            </div>
-            <div class="inner-container">
-                <div class="page">
-                    <div class="search-bar">
-                        <button onclick="filter()" id="search-button">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>
-                        <input id="search-input" type="text" placeholder="Search (leave blank for the full list)" autocomplete="on">
-                    </div>
-                    <div class="items-container" id="items">
-                        <!-- Sample item
-                        <div class="item">
-                            <div class="item-left">
-                                <div class="name">
-                                    <h2>Nome</h2>
-                                </div>
-                                <div class="restaurant">Ristorante</div>
-                                <div class="web">
-                                    <a href="www.google.com" target="_blank">Website</a>
-                                </div>
-                                <div class="description">Descrizione</div>
+        <div class="wrapper">
+            <div class="container">
+                <div class="main-header">
+                    <h1>Burgers API</h1>
+                </div>
+                <div class="inner-container">
+                    <div class="page">
+                        <div class="search-section">
+                            <div class="search-bar" id="search-bar">
+                                <button onclick="filterList()" id="search-button" title="Filter list">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                                <input id="search-input" type="text" placeholder="Search burgers" autocomplete="on">
                             </div>
-                            <div class="item-right">
-                                
+                            <div class="search-list">
+                                <button onclick="showFullList()" id="search-list" title="Show full list">
+                                    <i class="fa-solid fa-bars-staggered"></i>
+                                </button>
                             </div>
-                        </div> -->
+                            <div class="clear-list">
+                                <button onclick="clearList()" id="clear-list" title="Clear list">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="items-container" id="items">
+                            <!-- Sample item
+                            <div class="item">
+                                <div class="item-left">
+                                    <div class="name">
+                                        <h2>Nome</h2>
+                                    </div>
+                                    <div class="restaurant">Ristorante</div>
+                                    <div class="web">
+                                        <a href="www.google.com" target="_blank">Website</a>
+                                    </div>
+                                    <div class="description">Descrizione</div>
+                                </div>
+                                <div class="item-right">
+                                    
+                                </div>
+                            </div> -->
+                        </div>
                     </div>
                 </div>
             </div>

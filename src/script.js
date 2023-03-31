@@ -1,3 +1,8 @@
+/**
+ * if "Enter" key is pressed while typing in the search input,
+ * search button is clicked
+ */
+
 $(document).ready(function(){
   /* press enter on search bar input */
   $('#search-input').keypress(function(event){
@@ -8,12 +13,42 @@ $(document).ready(function(){
   });
 });
 
+/**
+ * fetch the api url
+ * @returns response in json format
+ */
+
 async function fetchAPI() {
     const url = "https://my-burger-api.herokuapp.com/burgers";
 
     const response = await fetch(url);
     return (await response.json());
 }
+
+/**
+ * clears the items list
+ */
+
+function clearList() {
+  $("#items").empty();
+}
+
+/**
+ * clears the items list whether the search input is blank
+ */
+
+function clearListIfBlankInput() {
+  const inputValue = document.getElementById("search-input").value;
+
+  if ((inputValue) == "") {
+    clearList();
+  }
+}
+
+/**
+ * adds a burger item to the items list
+ * @param {*} element 
+ */
 
 function addBurger(element) {
   const item = document.createElement("div");
@@ -42,30 +77,68 @@ function addBurger(element) {
 
   const item_right = document.createElement("div");
   $(item_right).addClass("item-left").appendTo(item);
-
-  /* document.getElementById("items").innerHTML += element.name + " - "; */
 }
 
-async function showBurgersList(jsonResponse, inputValue) {
-    $("#items").empty();
+/**
+ * shows all the burgers
+ * @param {*} jsonResponse 
+ */
+
+function showBurgersList(jsonResponse) {
+  clearList();
+
+  jsonResponse.forEach(element => {
+    addBurger(element);
+  });
+}
+
+/**
+ * shows all the burgers with the specified filter
+ * @param {*} jsonResponse 
+ * @param {*} inputValue 
+ */
+
+function showBurgersListFiltered(jsonResponse, inputValue) {
+    clearList();
 
     jsonResponse.forEach(element => {
-      if(inputValue == ""){
-        addBurger(element);
-      }
-      
-      if(inputValue.toUpperCase() == element.name.toUpperCase() ||
-         inputValue.toUpperCase() == element.restaurant.toUpperCase()) {
+      if(element.name.toUpperCase().includes(inputValue.toUpperCase()) ||
+         element.restaurant.toUpperCase().includes(inputValue.toUpperCase())){
         addBurger(element);
       }
     });
 }
 
-async function filter() {
-    const inputValue = document.getElementById("search-input").value;
+/**
+ * shows full items list
+ */
+
+async function showFullList() {
     const jsonResponse = await fetchAPI();
 
-    /* console.log(jsonResponse); */
-
-    showBurgersList(jsonResponse, inputValue);
+    showBurgersList(jsonResponse);
 }
+
+/**
+ * shows all the itmes list with the specified filter
+ * @returns nothing if inputValue is blank (stops the function)
+ */
+
+async function filterList() {
+    const inputValue = document.getElementById("search-input").value;
+    if (inputValue == "") return;
+  
+    const jsonResponse = await fetchAPI();
+
+    showBurgersListFiltered(jsonResponse, inputValue);
+}
+
+/**
+ * for each type in the search input, shows the burgers with the inputValue as a filter
+ */
+
+$("#search-input").on("input", function() {
+  clearListIfBlankInput()
+  
+  filterList();
+});
