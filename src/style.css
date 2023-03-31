@@ -9,7 +9,17 @@
 
     --basic-padding: 20px;
     --basic-border-radius: 10px;
+    --basic-transition: 0.2s;
     --basic-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--header-color);
+    border-radius: var(--basic-border-radius);
 }
 
 * {
@@ -49,7 +59,7 @@ h1 {
 .icons a i {
     font-size: 24px;
     color: var(--header-color);
-    transition: 0.2s;
+    transition: var(--basic-transition);
 }
 
 .container {
@@ -68,14 +78,15 @@ h1 {
 }
 
 .container .inner-container {
-    min-height: 800px;
+    /* min-height: 800px; */
     background-color: var(--container-color);
     /* padding: var(--basic-padding); */
     border-radius: var(--basic-border-radius);
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .container .inner-container .page {
-    min-height: 800px;
+    /* min-height: 800px; */
     border-radius: var(--basic-border-radius);
     padding: var(--basic-padding);
     display: flex;
@@ -108,6 +119,15 @@ h1 {
     font-size: 20px;
     color: var(--search-bar-items);
     margin-left: var(--basic-padding);
+    transition: var(--basic-transition);
+}
+
+.container .inner-container .page .search-bar button i:hover {
+    filter: brightness(80%);
+}
+
+.container .inner-container .page .search-bar button i:active {
+    filter: brightness(100%);
 }
 
 .container .inner-container .page .search-bar input {
@@ -125,22 +145,20 @@ h1 {
 
 .container .inner-container .page .items-container {
     border-radius: var(--basic-border-radius);
-    background-color: var(--page-color);
     display: flex;
     flex-wrap: wrap;
     gap: var(--basic-padding);
-    padding: var(--basic-padding);
-
-    box-shadow: var(--basic-box-shadow);
 }
 
 .container .inner-container .page .items-container .item {
     height: 200px;
     width: 100%;
-    border: 2px solid var(--container-color);
     border-radius: var(--basic-border-radius);
+    background-color: var(--page-color);
     display: flex;
     flex-direction: row;
+
+    box-shadow: var(--basic-box-shadow);
 }
 
 .container .inner-container .page .items-container .item .item-left,
