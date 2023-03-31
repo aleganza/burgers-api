@@ -1,1 +1,3 @@
 # burgers-js
+
+jquery

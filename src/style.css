@@ -8,6 +8,7 @@
     --search-bar-items: rgb(184,184,184);
 
     --basic-padding: 20px;
+    --basic-border-radius: 10px;
     --basic-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
@@ -30,11 +31,32 @@ h1 {
     color: var(--header-color);
 }
 
+.icons {
+    margin-left: var(--basic-padding);
+    position: absolute;
+    display: flex;
+    gap: var(--basic-padding);
+}
+
+.icons a {
+    text-decoration: none;
+}
+
+.icons a i:hover{
+    transform: translate(0px, -3px);
+}
+
+.icons a i {
+    font-size: 24px;
+    color: var(--header-color);
+    transition: 0.2s;
+}
+
 .container {
     margin: auto;
     width: 900px;
     height: 100%;
-    border-radius: 10px;
+    border-radius: var(--basic-border-radius);
     margin-top: var(--basic-padding);
     margin-bottom: var(--basic-padding);
 }
@@ -49,12 +71,12 @@ h1 {
     min-height: 800px;
     background-color: var(--container-color);
     /* padding: var(--basic-padding); */
-    border-radius: 10px;
+    border-radius: var(--basic-border-radius);
 }
 
 .container .inner-container .page {
     min-height: 800px;
-    border-radius: 10px;
+    border-radius: var(--basic-border-radius);
     padding: var(--basic-padding);
     display: flex;
     flex-direction: column;
@@ -63,7 +85,7 @@ h1 {
 
 .container .inner-container .page .search-bar {
     height: 60px;
-    border-radius: 10px;
+    border-radius: var(--basic-border-radius);
     background-color: var(--page-color);
     display: flex;
     align-items: center;
@@ -102,10 +124,28 @@ h1 {
 }
 
 .container .inner-container .page .items-container {
-
-    border-radius: 10px;
+    border-radius: var(--basic-border-radius);
     background-color: var(--page-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--basic-padding);
     padding: var(--basic-padding);
 
     box-shadow: var(--basic-box-shadow);
+}
+
+.container .inner-container .page .items-container .item {
+    height: 200px;
+    width: 100%;
+    border: 2px solid var(--container-color);
+    border-radius: var(--basic-border-radius);
+    display: flex;
+    flex-direction: row;
+}
+
+.container .inner-container .page .items-container .item .item-left,
+.container .inner-container .page .items-container .item .item-right {
+    width: 50%;
+    padding: var(--basic-padding);
+    /* border: 1px solid red; */
 }

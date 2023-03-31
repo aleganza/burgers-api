@@ -1,23 +1,70 @@
-/* press enter on input */
-var input = document.getElementById("search-input");
-var button = document.getElementById("search-button");
-
-input.addEventListener("keypress", function(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    button.click();
-  }
+$(document).ready(function(){
+  /* press enter on search bar input */
+  $('#search-input').keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      $("#search-button").click();
+    }
+  });
 });
 
 async function fetchAPI() {
-    var url = "https://my-burger-api.herokuapp.com/burgers";
+    const url = "https://my-burger-api.herokuapp.com/burgers";
 
     const response = await fetch(url);
-    const jsonResponse = await response.json();
+    return (await response.json());
+}
 
-    console.log(jsonResponse);
+function addBurger(element) {
+  const item = document.createElement("div");
+  $(item).addClass("item").appendTo("#items");
 
-    for (var i=0; i<28; i++) {
-        document.getElementById("items").innerHTML += jsonResponse[i].name + " - ";
-    }
+  const item_left = document.createElement("div");
+  $(item_left).addClass("item-left").appendTo(item);
+
+  const name = document.createElement("div");
+  $(name).addClass("name").appendTo(item_left);
+  $(document.createElement("h2")).text(element.name).appendTo(name);
+
+  const restaurant = document.createElement("div");
+  $(restaurant).addClass("restaurant").text(element.restaurant).appendTo(item_left);
+
+  const web = document.createElement("div");
+  $(web).addClass("website").appendTo(item_left);
+  $(document.createElement("a"))
+  .attr("href", element.web)
+  .attr("target", "_blank")
+  .text("Website")
+  .appendTo(web);
+
+  const description = document.createElement("div");
+  $(description).addClass("description").text(element.description).appendTo(item_left);
+
+  const item_right = document.createElement("div");
+  $(item_right).addClass("item-left").appendTo(item);
+
+  /* document.getElementById("items").innerHTML += element.name + " - "; */
+}
+
+async function showBurgersList(jsonResponse, inputValue) {
+    $("#items").empty();
+
+    jsonResponse.forEach(element => {
+      if(inputValue == ""){
+        addBurger(element);
+      }
+      
+      if(inputValue.toLowerCase() == element.name.toLowerCase()) {
+        addBurger(element);
+      }
+    });
+}
+
+async function filter() {
+    const inputValue = document.getElementById("search-input").value;
+    const jsonResponse = await fetchAPI();
+
+    /* console.log(jsonResponse); */
+
+    showBurgersList(jsonResponse, inputValue);
 }

@@ -6,23 +6,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <script src="https://kit.fontawesome.com/223615c47d.js" crossorigin="anonymous"></script>
-        <title>Burgers</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+        <title>Burgers API</title>
     </head>
     <body>
+        <div class="icons">
+            <a href="https://github.com/aleganza/burgers-js" target="_blank" title="GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://my-burger-api.herokuapp.com/burgers" target="_blank" title="API">
+                <i class="fa-solid fa-burger"></i>
+            </a>
+        </div>
         <div class="container">
             <div class="main-header">
-                <h1>Burgers</h1>
+                <h1>Burgers API</h1>
             </div>
             <div class="inner-container">
                 <div class="page">
                     <div class="search-bar">
-                        <button onclick="fetchAPI()" id="search-button">
+                        <button onclick="filter()" id="search-button">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
-                        <input id="search-input" type="text" placeholder="Filter" autocomplete="on">
+                        <input id="search-input" type="text" placeholder="Search (leave blank for the full list)" autocomplete="on">
                     </div>
                     <div class="items-container" id="items">
-
+                        <!-- Sample item
+                        <div class="item">
+                            <div class="item-left">
+                                <div class="name">
+                                    <h2>Nome</h2>
+                                </div>
+                                <div class="restaurant">Ristorante</div>
+                                <div class="web">
+                                    <a href="www.google.com" target="_blank">Website</a>
+                                </div>
+                                <div class="description">Descrizione</div>
+                            </div>
+                            <div class="item-right">
+                                
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
