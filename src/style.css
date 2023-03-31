@@ -119,6 +119,10 @@ body {
     box-shadow: var(--basic-box-shadow);
 }
 
+.container .inner-container .page .search-section .search-bar input:focus {
+    color: black;
+}
+
 .container .inner-container .page .search-section .search-bar button {
     background-color: transparent;
     cursor: pointer;
@@ -247,4 +251,31 @@ body {
 .container .inner-container .page .items-container .item .item-right {
     width: 50%;
     padding: var(--basic-padding);
+   /*  border: 1px solid red; */
+}
+
+.container .inner-container .page .items-container .item .item-left {
+    width: 1200px;
+}
+
+.container .inner-container .page .items-container .item .item-left .name h2{
+    font-size: 30px;
+    color: var(--header-color);
+}
+
+.container .inner-container .page .items-container .item .item-left .restaurant{
+    font-size: 20px;
+}
+
+.container .inner-container .page .items-container .item .item-left .description{
+    color: rgb(104, 104, 104);
+}
+
+.container .inner-container .page .items-container .item .item-right {
+    display: flex;
+    justify-content: right;
+}
+
+.container .inner-container .page .items-container .item .item-right img {
+    height: 100%;
 }

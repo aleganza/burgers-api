@@ -76,7 +76,10 @@ function addBurger(element) {
   $(description).addClass("description").text(element.description).appendTo(item_left);
 
   const item_right = document.createElement("div");
-  $(item_right).addClass("item-left").appendTo(item);
+  $(item_right).addClass("item-right").appendTo(item);
+
+  const img = document.createElement("img");
+  $(img).attr("src", "../public/images/burger.png").appendTo(item_right);
 }
 
 /**
