@@ -54,7 +54,8 @@ async function showBurgersList(jsonResponse, inputValue) {
         addBurger(element);
       }
       
-      if(inputValue.toLowerCase() == element.name.toLowerCase()) {
+      if(inputValue.toUpperCase() == element.name.toUpperCase() ||
+         inputValue.toUpperCase() == element.restaurant.toUpperCase()) {
         addBurger(element);
       }
     });
