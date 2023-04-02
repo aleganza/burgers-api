@@ -11,6 +11,10 @@
         <title>Burgers API</title>
     </head>
     <body>
+        <div class="responsive-alert" id="responsive-alert">
+            <h3>Not optimized</h3>
+            <h3>(click to see)</h3>
+        </div>
         <div class="icons">
             <a href="https://github.com/aleganza/burgers-js" target="_blank" title="GitHub">
                 <i class="fa-brands fa-github"></i>
@@ -33,15 +37,17 @@
                                 </button>
                                 <input id="search-input" type="text" placeholder="Search by name or restaurants..." autocomplete="on">
                             </div>
-                            <div class="search-list">
-                                <button onclick="showFullList()" id="search-list" title="Show full list">
-                                    <i class="fa-solid fa-bars-staggered"></i>
-                                </button>
-                            </div>
-                            <div class="clear-list">
-                                <button onclick="clearList()" id="clear-list" title="Clear list">
-                                    <i class="fa-solid fa-xmark"></i>
-                                </button>
+                            <div class="search-buttons">
+                                <div class="search-list">
+                                    <button onclick="showFullList()" id="search-list" title="Show full list">
+                                        <i class="fa-solid fa-bars-staggered"></i>
+                                    </button>
+                                </div>
+                                <div class="clear-list">
+                                    <button onclick="clearList()" id="clear-list" title="Clear list">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <div class="items-container" id="items">

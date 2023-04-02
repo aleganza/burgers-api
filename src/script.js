@@ -50,7 +50,14 @@ function clearListIfBlankInput() {
  * @param {*} element 
  */
 
-function addBurger(element) {
+async function addBurger(element) {
+  // cut description string (sometimes it's too long)
+  var elementDescription = await element.description;
+
+  if (elementDescription.length > 100) {
+    elementDescription = elementDescription.slice(0, 10);
+  }
+
   const item = document.createElement("div");
   $(item).addClass("item").appendTo("#items");
 
@@ -73,7 +80,7 @@ function addBurger(element) {
   .appendTo(web);
 
   const description = document.createElement("div");
-  $(description).addClass("description").text(element.description).appendTo(item_left);
+  $(description).addClass("description").text(elementDescription).appendTo(item_left);
 
   const item_right = document.createElement("div");
   $(item_right).addClass("item-right").appendTo(item);
@@ -144,4 +151,12 @@ $("#search-input").on("input", function() {
   clearListIfBlankInput()
   
   filterList();
+});
+
+/**
+ * alert since the website is momentarily not optimized for smaller devices
+ */
+
+$("#responsive-alert").click(function(){
+  $("#responsive-alert").css("visibility", "hidden");
 });
