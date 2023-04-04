@@ -1,4 +1,4 @@
-# 🍔 burgers-js
+# 🍔 burgers-api
 
 🔗 [API url](https://my-burger-api.herokuapp.com/burgers)
 
